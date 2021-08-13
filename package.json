@@ -1,0 +1,17 @@
+{
+  "name": "dynamo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "add": "node add.js",
+    "get": "node get.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.964.0",
+    "dynamoose": "^2.7.3"
+  }
+}
