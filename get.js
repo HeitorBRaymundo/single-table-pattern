@@ -1,8 +1,8 @@
 const dynamoose = require("dynamoose");
 
 dynamoose.aws.sdk.config.update({
-    "accessKeyId": "AKIAXQWMT6PF4HXAXVEX",
-    "secretAccessKey": "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",
+    "accessKeyId": "",
+    "secretAccessKey": "",
     "region": "us-east-1"
 });
 
