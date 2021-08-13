@@ -1,0 +1,698 @@
+{
+  "ModelName": "Single Table Pattern",
+  "ModelMetadata": {
+    "Author": "",
+    "DateCreated": "Aug 12, 2021, 06:35 PM",
+    "DateLastModified": "Aug 13, 2021, 10:35 AM",
+    "Description": "",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "CommunicationTable",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "email",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "phoneNumber",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "entityType",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "title",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "channel",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "fromUser",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "toUser",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "content",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "templateID",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "data",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "campaignID",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "language",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "templateName",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "status",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI01_PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI01_SK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "ocurredAt",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "byFromUser",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "fromUser",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "byToUser",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "toUser",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "bycampaignID",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "campaignID",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI01_PK",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI01_PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI01_SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "PK": {
+            "S": "company#2#recipient#application#1"
+          },
+          "SK": {
+            "S": "company#2#recipient#application#1"
+          },
+          "name": {
+            "S": "Noah"
+          },
+          "email": {
+            "S": "noah@gmail.com"
+          },
+          "phoneNumber": {
+            "S": "+5519999392700"
+          },
+          "entityType": {
+            "S": "user"
+          },
+          "type": {
+            "S": "recipient"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#application#2"
+          },
+          "SK": {
+            "S": "company#2#recipient#application#2"
+          },
+          "name": {
+            "S": "Ana"
+          },
+          "email": {
+            "S": "ana@gmail.com"
+          },
+          "phoneNumber": {
+            "S": "+5519999392701"
+          },
+          "entityType": {
+            "S": "user"
+          },
+          "type": {
+            "S": "recipient"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#application#3"
+          },
+          "SK": {
+            "S": "company#2#recipient#application#3"
+          },
+          "name": {
+            "S": "Theo"
+          },
+          "email": {
+            "S": "theo@gmail.com"
+          },
+          "phoneNumber": {
+            "S": "+5519999392702"
+          },
+          "entityType": {
+            "S": "user"
+          },
+          "type": {
+            "S": "recipient"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "SK": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "name": {
+            "S": "Bruna"
+          },
+          "email": {
+            "S": "bruna@gmail.com"
+          },
+          "entityType": {
+            "S": "user"
+          },
+          "type": {
+            "S": "sender"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#company_user#1"
+          },
+          "SK": {
+            "S": "company#2#recipient#company_user#1"
+          },
+          "name": {
+            "S": "Bruna"
+          },
+          "email": {
+            "S": "bruna@gmail.com"
+          },
+          "entityType": {
+            "S": "user"
+          },
+          "type": {
+            "S": "recipient"
+          }
+        },
+        {
+          "PK": {
+            "S": "no-reply"
+          },
+          "SK": {
+            "S": "no-reply"
+          },
+          "name": {
+            "S": "Gupy"
+          },
+          "email": {
+            "S": "no-reply"
+          },
+          "entityType": {
+            "S": "user"
+          },
+          "type": {
+            "S": "system"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#application#1"
+          },
+          "SK": {
+            "S": "company#2#chat#application#1#email-application#100"
+          },
+          "entityType": {
+            "S": "chat"
+          },
+          "title": {
+            "S": "Convite para realizar teste"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#1"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#application#2"
+          },
+          "SK": {
+            "S": "company#2#chat#application#2#email-application#200"
+          },
+          "entityType": {
+            "S": "chat"
+          },
+          "title": {
+            "S": "Convite para realizar teste"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#2"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#application#3"
+          },
+          "SK": {
+            "S": "company#2#chat#application#3#email-application#300"
+          },
+          "entityType": {
+            "S": "chat"
+          },
+          "title": {
+            "S": "Convite para realizar teste"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#3"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#chat#application#1#email-application#100"
+          },
+          "SK": {
+            "S": "communication#1000"
+          },
+          "entityType": {
+            "S": "communication"
+          },
+          "title": {
+            "S": "Convite para realizar teste"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#1"
+          },
+          "content": {
+            "S": "Conteúdo da mensagem"
+          },
+          "templateID": {
+            "S": "templateA"
+          },
+          "data": {
+            "M": {}
+          },
+          "campaignID": {
+            "S": "0b07be6b-073b-4905-b0c0-768a71a42858"
+          },
+          "language": {
+            "S": "pt"
+          },
+          "templateName": {
+            "S": "templateAName"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#chat#application#2#email-application#200"
+          },
+          "SK": {
+            "S": "communication#2000"
+          },
+          "entityType": {
+            "S": "communication"
+          },
+          "title": {
+            "S": "Convite para realizar teste"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#2"
+          },
+          "content": {
+            "S": "Conteúdo da mensagem"
+          },
+          "templateID": {
+            "S": "templateA"
+          },
+          "data": {
+            "M": {}
+          },
+          "campaignID": {
+            "S": "0b07be6b-073b-4905-b0c0-768a71a42858"
+          },
+          "language": {
+            "S": "en"
+          },
+          "templateName": {
+            "S": "templateAName"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#chat#application#3#email-application#300"
+          },
+          "SK": {
+            "S": "communication#3000"
+          },
+          "entityType": {
+            "S": "communication"
+          },
+          "title": {
+            "S": "Convite para realizar teste"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#3"
+          },
+          "content": {
+            "S": "Conteúdo da mensagem"
+          },
+          "templateID": {
+            "S": "templateA"
+          },
+          "data": {
+            "M": {}
+          },
+          "campaignID": {
+            "S": "0b07be6b-073b-4905-b0c0-768a71a42858"
+          },
+          "language": {
+            "S": "es"
+          },
+          "templateName": {
+            "S": "templateAName"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#recipient#application#1"
+          },
+          "SK": {
+            "S": "company#2#chat#application#1#email-application#101"
+          },
+          "entityType": {
+            "S": "chat"
+          },
+          "title": {
+            "S": "Vamos conversar?"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#1"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#chat#application#1#email-application#101"
+          },
+          "SK": {
+            "S": "communication#1010"
+          },
+          "entityType": {
+            "S": "communication"
+          },
+          "title": {
+            "S": "Vamos conversar?"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "toUser": {
+            "S": "company#2#recipient#application#1"
+          },
+          "content": {
+            "S": "Olá, Noah. Vamos conversar?"
+          },
+          "templateID": {
+            "S": "templateB"
+          },
+          "data": {
+            "M": {}
+          },
+          "campaignID": {
+            "S": "f700b4ec-0588-4502-b099-d072b20c60a4"
+          },
+          "language": {
+            "S": "pt"
+          },
+          "templateName": {
+            "S": "templateBName"
+          }
+        },
+        {
+          "PK": {
+            "S": "company#2#chat#application#1#email-application#101"
+          },
+          "SK": {
+            "S": "communication#1011"
+          },
+          "entityType": {
+            "S": "communication"
+          },
+          "title": {
+            "S": "Vamos conversar?"
+          },
+          "channel": {
+            "S": "email"
+          },
+          "fromUser": {
+            "S": "company#2#recipient#application#1"
+          },
+          "toUser": {
+            "S": "company#2#sender#company_user#1"
+          },
+          "content": {
+            "S": "Opa, Bruna. Topo conversar."
+          },
+          "templateID": {
+            "S": "templateC"
+          },
+          "data": {
+            "M": {}
+          },
+          "campaignID": {
+            "S": "c705ded1-601f-4ce2-9c69-4c5767f5409d"
+          },
+          "language": {
+            "S": "pt"
+          },
+          "templateName": {
+            "S": "templateCName"
+          }
+        },
+        {
+          "PK": {
+            "S": "communication#1010"
+          },
+          "SK": {
+            "S": "info#template"
+          },
+          "entityType": {
+            "S": "communicationTemplate"
+          },
+          "templateID": {
+            "S": "templateB"
+          },
+          "templateName": {
+            "S": "templateBName"
+          }
+        },
+        {
+          "PK": {
+            "S": "communication#1010"
+          },
+          "SK": {
+            "S": "info#data"
+          },
+          "entityType": {
+            "S": "communicationData"
+          },
+          "data": {
+            "M": {}
+          }
+        },
+        {
+          "PK": {
+            "S": "communication#1010"
+          },
+          "SK": {
+            "S": "info#requestedAt"
+          },
+          "entityType": {
+            "S": "communicationRequestAt"
+          },
+          "status": {
+            "S": "requestAt"
+          },
+          "ocurredAt": {
+            "S": "2020-08-13 09:40"
+          }
+        },
+        {
+          "PK": {
+            "S": "communication#1010"
+          },
+          "SK": {
+            "S": "info#builtAt"
+          },
+          "entityType": {
+            "S": "communicationBuiltat"
+          },
+          "status": {
+            "S": "builtAt"
+          },
+          "ocurredAt": {
+            "S": "2020-08-13 09:41"
+          }
+        },
+        {
+          "PK": {
+            "S": "communication#1010"
+          },
+          "SK": {
+            "S": "info#sentAt"
+          },
+          "entityType": {
+            "S": "communicationSentAt"
+          },
+          "status": {
+            "S": "sentAt"
+          },
+          "ocurredAt": {
+            "S": "2020-08-13 09:42"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
